@@ -12,5 +12,11 @@ export const img = function (parent, attributes) {
 
 const createElement = function (type, parent, attributes) {
     let element = document.createElement(type);
-    parent;
+    parent.appendChild(element);
+    if (attributes !== null) {
+        for (const attribute in attributes) {
+            element[attribute] = attributes[attribute];
+        }
+    }
+    return element;
 };

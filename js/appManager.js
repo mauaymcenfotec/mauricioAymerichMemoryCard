@@ -1,20 +1,17 @@
-import { div } from "./libs/html.js"
+import { MenuController } from "./controllers/menuController/menuController.js";
+import { NavbarController } from "./controllers/navbarController/navbarController.js";
+import { div, p, img } from "./libs/html.js"
+
 export class AppManager {
     constructor() {
-        let mainContainer = div(document.body, { className: 'mainContainer' });
-        this.mainContainer.className = 'mainContainer';
-        //document.body.appendChild(this.mainContainer);
+        this.mainContainer = div(document.body, { className: 'mainContainer' });
 
         //ToDo Create navViewController
+        this.navbarController = new NavbarController(this, this.mainContainer);
 
-        this.navViewController = div(document.body, null);
-        this.navViewController.className = 'controllerContainer';
-        this.mainContainer.appendChild(this.navViewController);
+        this.controllerContainer = div(this.mainContainer, { className: 'controllerContainer' });
 
-
-        this.controllerContainer = document.createElement('div');
-        this.controllerContainer.className = 'controllerContainer';
-        this.mainContainer.appendChild(this.controllerContainer);
+        this.menuController = new MenuController(this, this.controllerContainer);
 
     }
 }

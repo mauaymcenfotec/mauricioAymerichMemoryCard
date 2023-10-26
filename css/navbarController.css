@@ -1,0 +1,6 @@
+.navbarContoller {
+    width: 100%;
+    height: var(--navbar--height);
+    background-color: var(--secondary-color);
+    position: fixed;
+}
